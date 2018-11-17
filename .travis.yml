@@ -9,6 +9,6 @@ install:
   - pip install coveralls
 # command to run tests
 script:
-  - pytest --cov=python-data-structures/tests/
+  - pytest --cov=python-data-structures/
 after_success:
   coveralls
