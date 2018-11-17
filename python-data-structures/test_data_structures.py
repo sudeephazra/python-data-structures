@@ -25,8 +25,4 @@ def test_object_creation_non_default_paremeters():
 
 # Test operator overloading
 
-# Run the tests
-if __name__ == '__main__':
-    test_object_creation_default_parameters()
-    test_object_creation_non_default_position_parameters()
-    test_object_creation_non_default_paremeters()
+
