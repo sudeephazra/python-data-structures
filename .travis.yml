@@ -1,13 +1,18 @@
 language: python
 python:
-  - "3.6"
-  - "3.5"
-# command to install dependencies
+- '3.6'
+- '3.5'
 install:
-  - pip install pytest pytest-cov
-  - pip install coveralls
-# command to run tests
+- pip install pytest pytest-cov
+- pip install coveralls
 script:
-  - pytest --cov=python-data-structures/
-after_success:
-  coveralls
+- pytest --cov=python-data-structures/
+after_success: coveralls
+addons:
+  sonarcloud:
+    organization: "sudeephazra-github" # the key of the org you chose at step #3
+    token:
+      secure: "arW+ah6ASWgfNxMUBmkaaRcmE2lq/TXmCL9mKmK9lzSOOshUHO2x0YXpRiuFliKnUNdOqpzQPCErr+zPK8eaP8s74dGHrRZ5I6NlP/SW2n6QNRW9cRxayf+PL1o5EM/l1hMPqdq1QwdQVOdWb2MwUOwBh2fIBAvTpAbRzZRc1VUl3M0R35praacMEG6HtEUNzYFOknbpjGpDH63Xful4bolfkOBaQzH0DK9PlvnnumZbFnd32MfKlMnaSI9nnRwMMD6E9Na2z5EIw/r4mtjqen6UJXmJgA8lfzUvHnT5zIy0kQbkNo4rAm8XS3kjt0srODelmVueq74MfC/85sGVPkI7Gq1GX6CepjAYJDh8NeIHD3Dmy3IjEImFJYzefB12GHuj3i8uq9+b2EBXFJjfNkl0xTYY1jcaSXY20XgwnL1n/PX06TKusM+MTOeOy7tTYGRISr4AJ1yE4kIqqgjIAwpeycoVGGqwEF7rrpsBtyoJutRuHpMucFkMWgeCJVxrUGetX0jlTzWhoTUNr6xRVleSMbkIX7iw6pywAZlmn7HacESziTjo4DCWkFlSbAdwSkC90Nt9O4ewg+cdPmmpPYgqfQ/ct0ni97zTD9UQUiry6765N457DYK0W6N7wh7wBDNGm64+9OcpnbDb17Y9fvutuHS8EX1drHoby1giIzc=" # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
